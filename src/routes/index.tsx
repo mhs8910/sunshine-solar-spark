@@ -37,7 +37,7 @@ export const Route = createFileRoute("/")({
           description: "Solar installation company in Lahore, Pakistan — residential, commercial & industrial solar systems with net metering.",
           address: { "@type": "PostalAddress", addressLocality: "Lahore", addressRegion: "Punjab", addressCountry: "PK" },
           areaServed: ["Lahore", "Punjab"],
-          telephone: "+92-300-0000000",
+          telephone: "+92-300-4242895",
           priceRange: "$$",
         }),
       },
@@ -413,36 +413,6 @@ function Index() {
         </div>
       </Section>
 
-      {/* FINANCING */}
-      <Section id="financing" eyebrow="Financing" title="Flexible packages that fit your cashflow.">
-        <div className="grid lg:grid-cols-3 gap-5">
-          {[
-            { t: "Standard Package", d: "Advance + milestone-based payments aligned with project stages.", p: ["30% advance on agreement", "50% on equipment delivery", "20% on commissioning"] },
-            { t: "EMI / Bank Financing", d: "Partnered installment plans with leading Pakistani banks (placeholder).", p: ["12 – 60 month tenures", "Salaried & SME eligible", "Pre-approval in 48 hours"] },
-            { t: "Commercial Plans", d: "Tailored CapEx & OpEx structures for offices, factories and chains.", p: ["Lease-to-own options", "ROI-aligned milestones", "Multi-site rollouts"] },
-          ].map((f, i) => (
-            <div key={f.t} className={`rounded-3xl p-7 border ${i === 1 ? "bg-foreground text-primary-foreground border-foreground" : "bg-card border-border"}`}>
-              <div className="flex items-center gap-2">
-                <Wallet className={`h-4 w-4 ${i === 1 ? "text-amber" : "text-amber"}`} />
-                <span className="font-mono text-[10px] uppercase tracking-[0.2em] opacity-70">Plan</span>
-              </div>
-              <h3 className="mt-4 font-display text-2xl font-semibold">{f.t}</h3>
-              <p className={`mt-2 text-sm ${i === 1 ? "text-primary-foreground/70" : "text-muted-foreground"}`}>{f.d}</p>
-              <ul className="mt-5 space-y-2.5">
-                {f.p.map((p) => (
-                  <li key={p} className="flex items-start gap-2 text-sm">
-                    <CheckCircle2 className="h-4 w-4 text-amber mt-0.5 shrink-0" />
-                    <span>{p}</span>
-                  </li>
-                ))}
-              </ul>
-              <a href="https://wa.me/923000000000" className={`mt-6 inline-flex items-center gap-2 text-sm font-semibold ${i === 1 ? "text-amber" : "text-foreground"} hover:opacity-80`}>
-                Ask about payment options <ArrowRight className="h-4 w-4" />
-              </a>
-            </div>
-          ))}
-        </div>
-      </Section>
 
       {/* LOCAL SEO */}
       <Section id="lahore" eyebrow="Serving Lahore & Punjab" title="The trusted solar company in Lahore.">
@@ -508,7 +478,7 @@ function Index() {
               <a href="#calculator" className="inline-flex items-center gap-2 rounded-full bg-amber-gradient text-foreground px-6 py-3.5 text-sm font-semibold hover:brightness-105 transition shadow-amber-glow">
                 Get Free Solar Estimate <ArrowRight className="h-4 w-4" />
               </a>
-              <a href="https://wa.me/923000000000" className="inline-flex items-center gap-2 rounded-full bg-card/10 border border-card/20 text-primary-foreground px-6 py-3.5 text-sm font-semibold hover:bg-card/20 transition">
+              <a href="https://wa.me/923004242895" className="inline-flex items-center gap-2 rounded-full bg-card/10 border border-card/20 text-primary-foreground px-6 py-3.5 text-sm font-semibold hover:bg-card/20 transition">
                 <MessageCircle className="h-4 w-4" /> WhatsApp Sunshine Solar
               </a>
             </div>
@@ -629,7 +599,6 @@ function Footer() {
             <li><a href="#services" className="hover:text-amber">Services</a></li>
             <li><a href="#projects" className="hover:text-amber">Projects</a></li>
             <li><a href="#equipment" className="hover:text-amber">Equipment</a></li>
-            <li><a href="#financing" className="hover:text-amber">Financing</a></li>
             <li><a href="#faq" className="hover:text-amber">FAQ</a></li>
           </ul>
         </div>
@@ -637,7 +606,7 @@ function Footer() {
         <div>
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Contact</p>
           <ul className="mt-4 space-y-2.5 text-sm">
-            <li className="flex items-center gap-2"><Phone className="h-3.5 w-3.5 text-amber" /> +92 300 0000000</li>
+            <li className="flex items-center gap-2"><Phone className="h-3.5 w-3.5 text-amber" /> +92 300 4242895</li>
             <li className="flex items-center gap-2"><MessageCircle className="h-3.5 w-3.5 text-amber" /> WhatsApp us</li>
             <li><a href="#" className="hover:text-amber">Google Business Profile</a></li>
             <li><a href="#" className="hover:text-amber">Facebook</a></li>
