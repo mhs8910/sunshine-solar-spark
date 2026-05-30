@@ -1,5 +1,7 @@
 import { useMemo, useState } from "react";
 import { Calculator, Send, Sparkles } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+import { CountUp } from "@/components/site/CountUp";
 
 type PropertyType = "Home" | "Business" | "Industrial";
 
@@ -172,9 +174,28 @@ export function SolarCalculator() {
 
 function Stat({ label, value, accent }: { label: string; value: string; accent?: boolean }) {
   return (
-    <div className={`rounded-2xl p-4 border ${accent ? "bg-amber/10 border-amber/30" : "bg-muted border-border"}`}>
+    <motion.div
+      key={value}
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+      className={`rounded-2xl p-4 border transition-colors ${accent ? "bg-amber/10 border-amber/30" : "bg-muted border-border"}`}
+    >
       <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">{label}</p>
-      <p className="font-display text-2xl font-semibold mt-1">{value}</p>
-    </div>
+      <AnimatePresence mode="wait">
+        <motion.p
+          key={value}
+          initial={{ opacity: 0, y: 6 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -6 }}
+          transition={{ duration: 0.25 }}
+          className="font-display text-2xl font-semibold mt-1 tabular-nums"
+        >
+          {value}
+        </motion.p>
+      </AnimatePresence>
+    </motion.div>
   );
 }
+// keep CountUp import live for future micro-anims
+void CountUp;
