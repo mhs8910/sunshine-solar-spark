@@ -1,4 +1,4 @@
-import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
+import { motion, useMotionValue, useMotionTemplate, useSpring, useTransform } from "motion/react";
 import { useRef, type ReactNode, type MouseEvent } from "react";
 
 export function TiltCard({
@@ -54,11 +54,7 @@ export function TiltCard({
         aria-hidden
         className="pointer-events-none absolute inset-0 rounded-[inherit] opacity-0 hover:opacity-100 transition-opacity duration-500 mix-blend-overlay"
         style={{
-          background: useTransform(
-            [glareX, glareY] as never,
-            ([x, y]: [string, string]) =>
-              `radial-gradient(420px circle at ${x} ${y}, rgba(255,255,255,0.55), transparent 55%)`,
-          ),
+          background: useMotionTemplate`radial-gradient(420px circle at ${glareX} ${glareY}, rgba(255,255,255,0.55), transparent 55%)`,
         }}
       />
     </motion.div>
