@@ -15,7 +15,6 @@ import {
   Cookie,
   Share2,
   Clock,
-  Trash2,
   Scale,
   MessageSquare,
   ChevronUp,
