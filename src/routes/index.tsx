@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight, PlayCircle, Sun, Zap, ShieldCheck, Cpu, Wrench, LineChart,
   Home, Building2, Factory, MapPin, CheckCircle2, AlertTriangle, Battery,
