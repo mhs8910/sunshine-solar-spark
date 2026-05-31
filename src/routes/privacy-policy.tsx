@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion, useScroll, useSpring, useReducedMotion } from "motion/react";
+import { motion, useScroll, useSpring, useReducedMotion, AnimatePresence } from "motion/react";
 import { useEffect, useState, useRef, useCallback } from "react";
 import {
   Shield,
