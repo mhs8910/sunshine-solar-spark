@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight, PlayCircle, Sun, Zap, ShieldCheck, Cpu, Wrench, LineChart,
   Home, Building2, Factory, MapPin, CheckCircle2, AlertTriangle, Battery,
@@ -839,13 +839,11 @@ function Footer() {
         </div>
 
         <div>
-          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Contact</p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Legal</p>
           <ul className="mt-4 space-y-2.5 text-sm">
-            <li className="flex items-center gap-2"><Phone className="h-3.5 w-3.5 text-amber" /> +92 300 4242895</li>
-            <li className="flex items-center gap-2"><MessageCircle className="h-3.5 w-3.5 text-amber" /> WhatsApp us</li>
-            <li><a href="#" className="hover:text-amber transition-colors">Google Business Profile</a></li>
-            <li><a href="#" className="hover:text-amber transition-colors">Facebook</a></li>
-            <li><a href="#" className="hover:text-amber transition-colors">Instagram · YouTube</a></li>
+            <li><Link to="/privacy-policy" className="hover:text-amber transition-colors">Privacy Policy</Link></li>
+            <li><Link to="/" className="hover:text-amber transition-colors">Terms & Conditions</Link></li>
+            <li><a href="#calculator" className="hover:text-amber transition-colors">Contact Us</a></li>
           </ul>
         </div>
       </div>
@@ -855,8 +853,8 @@ function Footer() {
             © {new Date().getFullYear()} Sunshine Solar Energy · Lahore, Punjab
           </p>
           <div className="flex gap-5 text-xs text-muted-foreground">
-            <a href="#" className="hover:text-foreground transition-colors">Privacy</a>
-            <a href="#" className="hover:text-foreground transition-colors">Terms</a>
+            <Link to="/privacy-policy" className="hover:text-foreground transition-colors">Privacy</Link>
+            <Link to="/" className="hover:text-foreground transition-colors">Terms</Link>
           </div>
         </div>
       </div>
