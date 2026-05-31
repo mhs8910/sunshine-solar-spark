@@ -629,5 +629,3 @@ function PrivacyPolicyPage() {
     </div>
   );
 }
-
-}
