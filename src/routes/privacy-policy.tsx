@@ -630,6 +630,4 @@ function PrivacyPolicyPage() {
   );
 }
 
-/* ─────────────────────────── AnimatePresence import bridge ─────────────────────────── */
-
-import { AnimatePresence } from "motion/react";
+}
