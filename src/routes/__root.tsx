@@ -37,6 +37,7 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
+
   useEffect(() => {
     reportLovableError(error, { boundary: "tanstack_root_error_component" });
   }, [error]);
@@ -78,23 +79,55 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Sunshine Solar Energy — Solar Installation in Lahore" },
-      { name: "description", content: "Cut your electricity bill by 70–80% with Sunshine Solar. Lahore's trusted residential, commercial & industrial solar installer with net metering and tier-1 equipment." },
+      {
+        name: "description",
+        content:
+          "Cut your electricity bill by 70–80% with Sunshine Solar. Lahore's trusted residential, commercial & industrial solar installer with net metering and tier-1 equipment.",
+      },
       { name: "author", content: "Sunshine Solar Energy" },
-      { property: "og:title", content: "Sunshine Solar Energy — Solar Installation in Lahore" },
-      { property: "og:description", content: "Cut your electricity bill by 70–80% with Sunshine Solar. Lahore's trusted residential, commercial & industrial solar installer with net metering and tier-1 equipment." },
+      {
+        property: "og:title",
+        content: "Sunshine Solar Energy — Solar Installation in Lahore",
+      },
+      {
+        property: "og:description",
+        content:
+          "Cut your electricity bill by 70–80% with Sunshine Solar. Lahore's trusted residential, commercial & industrial solar installer with net metering and tier-1 equipment.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Sunshine Solar Energy — Solar Installation in Lahore" },
-      { name: "twitter:description", content: "Cut your electricity bill by 70–80% with Sunshine Solar. Lahore's trusted residential, commercial & industrial solar installer with net metering and tier-1 equipment." },
-
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1ea459e4-e89d-476a-9bec-d896aea8233b/id-preview-692c1cea--59cdd01b-dba0-40d1-bb68-9397dd46a595.lovable.app-1780134893832.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1ea459e4-e89d-476a-9bec-d896aea8233b/id-preview-692c1cea--59cdd01b-dba0-40d1-bb68-9397dd46a595.lovable.app-1780134893832.png" },
+      {
+        name: "twitter:title",
+        content: "Sunshine Solar Energy — Solar Installation in Lahore",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Cut your electricity bill by 70–80% with Sunshine Solar. Lahore's trusted residential, commercial & industrial solar installer with net metering and tier-1 equipment.",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1ea459e4-e89d-476a-9bec-d896aea8233b/id-preview-692c1cea--59cdd01b-dba0-40d1-bb68-9397dd46a595.lovable.app-1780134893832.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/1ea459e4-e89d-476a-9bec-d896aea8233b/id-preview-692c1cea--59cdd01b-dba0-40d1-bb68-9397dd46a595.lovable.app-1780134893832.png",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" },
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "anonymous",
+      },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -139,7 +172,6 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>
   );
