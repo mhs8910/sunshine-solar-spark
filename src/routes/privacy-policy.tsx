@@ -404,7 +404,9 @@ function PrivacyPolicyPage() {
       <ScrollProgress />
       <PrivacyHeader />
 
+      <main>
       {/* ── Hero ── */}
+
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-sun-glow pointer-events-none" />
         <motion.div
@@ -623,8 +625,10 @@ function PrivacyPolicyPage() {
           </div>
         </div>
       </div>
+      </main>
 
       <PrivacyFooter />
     </div>
+
   );
 }
