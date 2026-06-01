@@ -107,30 +107,32 @@ function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
-        <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3EDYKTZ0JJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+        <HeadContent />
 
-  gtag('config', 'G-3EDYKTZ0JJ');
-</script>
         <script
-  async
-  src="https://www.googletagmanager.com/gtag/js?id=G-3EDYKTZ0JJ"
-/>
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-3EDYKTZ0JJ"
+        />
 
-<script
-  dangerouslySetInnerHTML={{
-    __html: `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-3EDYKTZ0JJ');
-    `,
-  }}
-/>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-3EDYKTZ0JJ');
+            `,
+          }}
+        />
+      </head>
+
+      <body>
+        {children}
+        <Scripts />
+      </body>
+    </html>
+  );
+}/>
         <HeadContent />
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3EDYKTZ0JJ"></script>
