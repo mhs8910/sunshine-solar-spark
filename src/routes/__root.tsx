@@ -129,6 +129,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap",
       },
     ],
+    scripts: [
+      {
+        async: true,
+        src: "https://www.googletagmanager.com/gtag/js?id=G-3EDYKTZ0JJ",
+      },
+      {
+        children: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-3EDYKTZ0JJ');
+        `,
+      },
+    ],
   }),
   shellComponent: RootShell,
   component: RootComponent,
@@ -141,24 +155,7 @@ function RootShell({ children }: { children: ReactNode }) {
     <html lang="en">
       <head>
         <HeadContent />
-
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-3EDYKTZ0JJ"
-        />
-
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-3EDYKTZ0JJ');
-            `,
-          }}
-        />
       </head>
-
       <body>
         {children}
         <Scripts />
