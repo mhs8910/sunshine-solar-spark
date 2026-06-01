@@ -28,8 +28,8 @@ import { LoadingScreen } from "@/components/site/LoadingScreen";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Sunshine Solar Energy — Premium Solar Installation in Lahore" },
-      { name: "description", content: "Cut your electricity bill by 70–80%. Lahore's premium solar installer for homes, businesses and industries. AI-powered sizing, net metering & tier-1 equipment." },
+      { title: "Sunshine Solar Energy — Solar Installation in Lahore" },
+      { name: "description", content: "Cut your electricity bill by 70–80% with Lahore's premium solar installer. AI-powered sizing, net metering and tier-1 panels for homes and businesses." },
       { property: "og:title", content: "Sunshine Solar Energy — Lahore" },
       { property: "og:description", content: "Premium residential, commercial & industrial solar in Lahore. Free estimate in 24 hours." },
       { property: "og:url", content: "/" },
@@ -50,8 +50,27 @@ export const Route = createFileRoute("/")({
           priceRange: "$$",
         }),
       },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: [
+            { "@type": "Question", name: "How much can I save with solar?", acceptedAnswer: { "@type": "Answer", text: "Most Sunshine Solar customers cut their monthly electricity bills by 70–80%. Exact savings depend on system size, your usage pattern and net metering tariff." } },
+            { "@type": "Question", name: "What system size do I need?", acceptedAnswer: { "@type": "Answer", text: "We use AI-powered sizing based on your last 6–12 months of bills, roof area and load profile. Typical homes need 5–10 kW, commercial 15–50 kW, industrial 50 kW+." } },
+            { "@type": "Question", name: "How long does installation take?", acceptedAnswer: { "@type": "Answer", text: "Residential installations are usually completed in 3–5 days. Commercial and industrial timelines range from 1 to 4 weeks depending on system size and structural work." } },
+            { "@type": "Question", name: "Do you handle net metering?", acceptedAnswer: { "@type": "Answer", text: "Yes — we handle the full LESCO / IESCO net metering application, documentation and bidirectional meter installation on your behalf." } },
+            { "@type": "Question", name: "What equipment do you use?", acceptedAnswer: { "@type": "Answer", text: "Only Tier-1 panels (Jinko, Longi, Canadian Solar) and inverters (Huawei, Solis, Growatt, Sungrow). Every unit ships with serial-number authenticity verification." } },
+            { "@type": "Question", name: "Is solar worth it in Lahore?", acceptedAnswer: { "@type": "Answer", text: "Lahore averages 5+ peak sun hours daily. With current grid tariffs, most systems pay for themselves in 2.5–4 years and continue producing for 25+ years." } },
+            { "@type": "Question", name: "Do you provide maintenance?", acceptedAnswer: { "@type": "Answer", text: "Yes. Every installation includes 24/7 remote monitoring, annual cleaning visits and a dedicated after-sales WhatsApp line." } },
+            { "@type": "Question", name: "Can I add batteries later?", acceptedAnswer: { "@type": "Answer", text: "Absolutely. All our hybrid inverters are battery-ready. You can start with grid-tied and add lithium storage when load-shedding or pricing changes." } },
+            { "@type": "Question", name: "How do YouTube project videos help verify work?", acceptedAnswer: { "@type": "Answer", text: "Every featured project on our channel shows real installations with client testimonials, system specs and on-site footage — so you can verify our work before signing up." } },
+          ],
+        }),
+      },
     ],
   }),
+
   component: Index,
 });
 
@@ -82,7 +101,9 @@ function Index() {
       <CursorGlow />
       <Navbar />
 
+      <main>
       <Hero />
+
 
       {/* CALCULATOR */}
       <Section
@@ -343,17 +364,19 @@ function Index() {
       <Section id="equipment" eyebrow="Equipment & Technology" title="Only the gear we'd put on our own roofs.">
         <Stagger className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           {[
-            { img: panelImg, icon: PanelTop, t: "Solar Panels", d: "Tier-1 mono-PERC & N-type modules from Jinko, Longi & Canadian Solar.", w: "25-year linear power warranty" },
-            { img: inverterImg, icon: Plug, t: "Inverters", d: "Hybrid & on-grid inverters from Huawei, Solis, Sungrow, Growatt.", w: "10-year inverter warranty" },
-            { img: batteryImg, icon: Battery, t: "Lithium Batteries", d: "LiFePO4 storage from Dyness, Pylontech and Huawei LUNA — battery-ready by default.", w: "6,000+ cycle life" },
-          ].map(({ img, icon: Icon, t, d, w }) => (
+            { img: panelImg, icon: PanelTop, t: "Solar Panels", alt: "Tier-1 monocrystalline solar panel", d: "Tier-1 mono-PERC & N-type modules from Jinko, Longi & Canadian Solar.", w: "25-year linear power warranty" },
+            { img: inverterImg, icon: Plug, t: "Inverters", alt: "Hybrid solar inverter system", d: "Hybrid & on-grid inverters from Huawei, Solis, Sungrow, Growatt.", w: "10-year inverter warranty" },
+            { img: batteryImg, icon: Battery, t: "Lithium Batteries", alt: "LiFePO4 lithium solar battery", d: "LiFePO4 storage from Dyness, Pylontech and Huawei LUNA — battery-ready by default.", w: "6,000+ cycle life" },
+
+          ].map(({ img, icon: Icon, t, alt, d, w }) => (
             <StaggerItem key={t}>
               <TiltCard intensity={6} className="h-full rounded-3xl">
                 <div className="rounded-3xl bg-card/85 backdrop-blur border border-border overflow-hidden hover:shadow-elevated transition h-full group">
                   <div className="aspect-[4/3] bg-paper overflow-hidden">
                     <motion.img
                       src={img}
-                      alt={t}
+                      alt={alt}
+
                       loading="lazy"
                       width={896}
                       height={672}
@@ -494,9 +517,11 @@ function Index() {
           </div>
         </Reveal>
       </section>
+      </main>
 
       <Footer />
       <StickyMobileCTA />
+
     </div>
   );
 }
