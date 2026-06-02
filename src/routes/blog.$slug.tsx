@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 
 import { Navbar } from "@/components/site/Navbar";
-import { getPost, getRelated, POSTS } from "@/data/blog";
+import { getPost, getRelated, type BlogPost } from "@/data/blog";
 
 export const Route = createFileRoute("/blog/$slug")({
   loader: ({ params }) => {
