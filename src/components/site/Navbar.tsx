@@ -3,11 +3,11 @@ import { Sun, Menu, X } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
 
 const links = [
-  { href: "#calculator", label: "Calculator" },
-  { href: "#services", label: "Services" },
-  { href: "#projects", label: "Projects" },
-  { href: "#equipment", label: "Equipment" },
-  { href: "#faq", label: "FAQ" },
+  { href: "/#calculator", label: "Calculator" },
+  { href: "/#services", label: "Services" },
+  { href: "/#projects", label: "Projects" },
+  { href: "/blog", label: "Blog" },
+  { href: "/#faq", label: "FAQ" },
 ];
 
 export function Navbar() {
