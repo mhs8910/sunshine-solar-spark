@@ -115,7 +115,10 @@ function slugify(s: string) {
 }
 
 function BlogPostPage() {
-  const { post, related } = Route.useLoaderData();
+  const { post, related } = Route.useLoaderData() as {
+    post: BlogPost;
+    related: BlogPost[];
+  };
   const [progress, setProgress] = useState(0);
   const [copied, setCopied] = useState(false);
 
