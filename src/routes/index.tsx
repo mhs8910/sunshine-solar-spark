@@ -859,6 +859,7 @@ function Footer() {
             <li><a href="#services" className="hover:text-amber transition-colors">Services</a></li>
             <li><a href="#projects" className="hover:text-amber transition-colors">Projects</a></li>
             <li><a href="#equipment" className="hover:text-amber transition-colors">Equipment</a></li>
+            <li><Link to="/blog" className="hover:text-amber transition-colors">Blog</Link></li>
             <li><a href="#faq" className="hover:text-amber transition-colors">FAQ</a></li>
           </ul>
         </div>
