@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
 import { Sun, Menu, X } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
+import { Link } from "@tanstack/react-router";
 
 const links = [
-  { href: "/#calculator", label: "Calculator" },
-  { href: "/#services", label: "Services" },
-  { href: "/#projects", label: "Projects" },
+  { href: "/services", label: "Services" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/net-metering", label: "Net Metering" },
+  { href: "/calculator", label: "Calculator" },
+  { href: "/case-studies", label: "Case Studies" },
   { href: "/blog", label: "Blog" },
-  { href: "/#faq", label: "FAQ" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Navbar() {
