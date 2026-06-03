@@ -121,22 +121,22 @@ export function Navbar() {
           >
             <div className="mx-auto max-w-7xl px-5 py-4 flex flex-col gap-3">
               {links.map((l) => (
-                <a
+                <Link
                   key={l.href}
-                  href={l.href}
+                  to={l.href}
                   onClick={() => setOpen(false)}
                   className="py-2 text-foreground/80"
                 >
                   {l.label}
-                </a>
+                </Link>
               ))}
-              <a
-                href="#calculator"
+              <Link
+                to="/calculator"
                 onClick={() => setOpen(false)}
                 className="mt-2 inline-flex items-center justify-center rounded-full bg-foreground text-primary-foreground px-4 py-3 text-sm font-medium"
               >
                 Get Free Estimate
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}
