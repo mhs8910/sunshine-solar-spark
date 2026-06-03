@@ -87,18 +87,18 @@ export function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-3">
-          <motion.a
-            href="#calculator"
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.97 }}
-            className="group relative inline-flex items-center overflow-hidden rounded-full bg-foreground text-primary-foreground px-4 py-2 text-sm font-medium"
-          >
-            <span
-              aria-hidden
-              className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent group-hover:translate-x-full transition-transform duration-[900ms] ease-out"
-            />
-            <span className="relative">Get Free Estimate</span>
-          </motion.a>
+          <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+            <Link
+              to="/calculator"
+              className="group relative inline-flex items-center overflow-hidden rounded-full bg-foreground text-primary-foreground px-4 py-2 text-sm font-medium"
+            >
+              <span
+                aria-hidden
+                className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent group-hover:translate-x-full transition-transform duration-[900ms] ease-out"
+              />
+              <span className="relative">Get Free Estimate</span>
+            </Link>
+          </motion.div>
         </div>
 
         <button
