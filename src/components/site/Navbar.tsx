@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
 import { Sun, Menu, X } from "lucide-react";
 import { motion, AnimatePresence, useScroll, useTransform } from "motion/react";
+import { Link } from "@tanstack/react-router";
 
 const links = [
-  { href: "/#calculator", label: "Calculator" },
-  { href: "/#services", label: "Services" },
-  { href: "/#projects", label: "Projects" },
+  { href: "/services", label: "Services" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/net-metering", label: "Net Metering" },
+  { href: "/calculator", label: "Calculator" },
+  { href: "/case-studies", label: "Case Studies" },
   { href: "/blog", label: "Blog" },
-  { href: "/#faq", label: "FAQ" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export function Navbar() {
@@ -36,38 +40,39 @@ export function Navbar() {
       }}
     >
       <nav className="mx-auto max-w-7xl px-5 lg:px-8 h-16 flex items-center justify-between">
-        <motion.a
-          href="#top"
-          className="flex items-center gap-2 group"
+        <motion.div
           initial={{ opacity: 0, x: -8 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <motion.span
-            whileHover={{ rotate: 90, scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 200, damping: 14 }}
-            className="relative inline-flex h-9 w-9 items-center justify-center rounded-xl bg-amber-gradient shadow-amber-glow"
-          >
-            <Sun className="h-5 w-5 text-foreground" strokeWidth={2.25} />
-          </motion.span>
-          <span className="flex flex-col leading-none">
-            <span className="font-display text-base font-bold tracking-tight">Sunshine Solar</span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-              Energy · Lahore
+          <Link to="/" className="flex items-center gap-2 group">
+            <motion.span
+              whileHover={{ rotate: 90, scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 200, damping: 14 }}
+              className="relative inline-flex h-9 w-9 items-center justify-center rounded-xl bg-amber-gradient shadow-amber-glow"
+            >
+              <Sun className="h-5 w-5 text-foreground" strokeWidth={2.25} />
+            </motion.span>
+            <span className="flex flex-col leading-none">
+              <span className="font-display text-base font-bold tracking-tight">Sunshine Solar</span>
+              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+                Energy · Lahore
+              </span>
             </span>
-          </span>
-        </motion.a>
+          </Link>
+        </motion.div>
 
         <div
           className="hidden md:flex items-center gap-2 relative"
           onMouseLeave={() => setHovered(null)}
         >
           {links.map((l) => (
-            <a
+            <Link
               key={l.href}
-              href={l.href}
+              to={l.href}
               onMouseEnter={() => setHovered(l.href)}
-              className="relative px-4 py-2 text-sm text-foreground/75 hover:text-foreground transition-colors"
+              className="relative px-3 py-2 text-sm text-foreground/75 hover:text-foreground transition-colors"
+              activeProps={{ className: "text-foreground" }}
             >
               {hovered === l.href && (
                 <motion.span
@@ -77,23 +82,23 @@ export function Navbar() {
                 />
               )}
               <span className="relative">{l.label}</span>
-            </a>
+            </Link>
           ))}
         </div>
 
         <div className="hidden md:flex items-center gap-3">
-          <motion.a
-            href="#calculator"
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.97 }}
-            className="group relative inline-flex items-center overflow-hidden rounded-full bg-foreground text-primary-foreground px-4 py-2 text-sm font-medium"
-          >
-            <span
-              aria-hidden
-              className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent group-hover:translate-x-full transition-transform duration-[900ms] ease-out"
-            />
-            <span className="relative">Get Free Estimate</span>
-          </motion.a>
+          <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
+            <Link
+              to="/calculator"
+              className="group relative inline-flex items-center overflow-hidden rounded-full bg-foreground text-primary-foreground px-4 py-2 text-sm font-medium"
+            >
+              <span
+                aria-hidden
+                className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent group-hover:translate-x-full transition-transform duration-[900ms] ease-out"
+              />
+              <span className="relative">Get Free Estimate</span>
+            </Link>
+          </motion.div>
         </div>
 
         <button
@@ -116,22 +121,22 @@ export function Navbar() {
           >
             <div className="mx-auto max-w-7xl px-5 py-4 flex flex-col gap-3">
               {links.map((l) => (
-                <a
+                <Link
                   key={l.href}
-                  href={l.href}
+                  to={l.href}
                   onClick={() => setOpen(false)}
                   className="py-2 text-foreground/80"
                 >
                   {l.label}
-                </a>
+                </Link>
               ))}
-              <a
-                href="#calculator"
+              <Link
+                to="/calculator"
                 onClick={() => setOpen(false)}
                 className="mt-2 inline-flex items-center justify-center rounded-full bg-foreground text-primary-foreground px-4 py-3 text-sm font-medium"
               >
                 Get Free Estimate
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}

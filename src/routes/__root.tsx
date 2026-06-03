@@ -142,6 +142,43 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           gtag('config', 'G-675C2BYVN7');
         `,
       },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "@id": "https://sunshine-solar-spark.lovable.app/#organization",
+          name: "Sunshine Solar Energy",
+          url: "https://sunshine-solar-spark.lovable.app",
+          logo: "https://sunshine-solar-spark.lovable.app/favicon.ico",
+          telephone: "+92-300-4242895",
+          email: "info@sunshinesolarltd.com",
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: "Lahore",
+            addressRegion: "Punjab",
+            addressCountry: "PK",
+          },
+          areaServed: ["Lahore", "Islamabad", "Karachi", "Rawalpindi", "Faisalabad", "Multan", "Punjab", "Pakistan"],
+          sameAs: ["https://sunshinesolarltd.com"],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "@id": "https://sunshine-solar-spark.lovable.app/#website",
+          url: "https://sunshine-solar-spark.lovable.app",
+          name: "Sunshine Solar Energy",
+          publisher: { "@id": "https://sunshine-solar-spark.lovable.app/#organization" },
+          potentialAction: {
+            "@type": "SearchAction",
+            target: "https://sunshine-solar-spark.lovable.app/blog?q={search_term_string}",
+            "query-input": "required name=search_term_string",
+          },
+        }),
+      },
     ],
   }),
   shellComponent: RootShell,
