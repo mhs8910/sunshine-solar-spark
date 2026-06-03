@@ -40,27 +40,27 @@ export function Navbar() {
       }}
     >
       <nav className="mx-auto max-w-7xl px-5 lg:px-8 h-16 flex items-center justify-between">
-        <motion.a
-          href="#top"
-          className="flex items-center gap-2 group"
+        <motion.div
           initial={{ opacity: 0, x: -8 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <motion.span
-            whileHover={{ rotate: 90, scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 200, damping: 14 }}
-            className="relative inline-flex h-9 w-9 items-center justify-center rounded-xl bg-amber-gradient shadow-amber-glow"
-          >
-            <Sun className="h-5 w-5 text-foreground" strokeWidth={2.25} />
-          </motion.span>
-          <span className="flex flex-col leading-none">
-            <span className="font-display text-base font-bold tracking-tight">Sunshine Solar</span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-              Energy · Lahore
+          <Link to="/" className="flex items-center gap-2 group">
+            <motion.span
+              whileHover={{ rotate: 90, scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 200, damping: 14 }}
+              className="relative inline-flex h-9 w-9 items-center justify-center rounded-xl bg-amber-gradient shadow-amber-glow"
+            >
+              <Sun className="h-5 w-5 text-foreground" strokeWidth={2.25} />
+            </motion.span>
+            <span className="flex flex-col leading-none">
+              <span className="font-display text-base font-bold tracking-tight">Sunshine Solar</span>
+              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+                Energy · Lahore
+              </span>
             </span>
-          </span>
-        </motion.a>
+          </Link>
+        </motion.div>
 
         <div
           className="hidden md:flex items-center gap-2 relative"
