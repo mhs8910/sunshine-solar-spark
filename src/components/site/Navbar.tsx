@@ -67,11 +67,12 @@ export function Navbar() {
           onMouseLeave={() => setHovered(null)}
         >
           {links.map((l) => (
-            <a
+            <Link
               key={l.href}
-              href={l.href}
+              to={l.href}
               onMouseEnter={() => setHovered(l.href)}
-              className="relative px-4 py-2 text-sm text-foreground/75 hover:text-foreground transition-colors"
+              className="relative px-3 py-2 text-sm text-foreground/75 hover:text-foreground transition-colors"
+              activeProps={{ className: "text-foreground" }}
             >
               {hovered === l.href && (
                 <motion.span
@@ -81,7 +82,7 @@ export function Navbar() {
                 />
               )}
               <span className="relative">{l.label}</span>
-            </a>
+            </Link>
           ))}
         </div>
 
