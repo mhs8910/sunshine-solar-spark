@@ -30,11 +30,13 @@ export const Route = createFileRoute("/privacy-policy")({
       { property: "og:title", content: "Sunshine Solar Energy Privacy Policy | Lahore Solar Solutions" },
       { property: "og:description", content: "Read Sunshine Solar Energy's Privacy Policy to understand how we collect, use, and protect customer information across our solar consultation, installation, and support services." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/privacy-policy" },
+      { property: "og:url", content: "https://sunshine-solar-spark.lovable.app/privacy-policy" },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Sunshine Solar Energy Privacy Policy" },
+      { name: "twitter:description", content: "How we collect, use, and protect customer information across our solar services." },
     ],
     links: [
-      { rel: "canonical", href: "/privacy-policy" },
+      { rel: "canonical", href: "https://sunshine-solar-spark.lovable.app/privacy-policy" },
     ],
     scripts: [
       {
@@ -44,10 +46,10 @@ export const Route = createFileRoute("/privacy-policy")({
           "@type": "WebPage",
           name: "Privacy Policy — Sunshine Solar Energy",
           description: "Privacy policy for Sunshine Solar Energy, Lahore-based solar installation company.",
-          url: "/privacy-policy",
+          url: "https://sunshine-solar-spark.lovable.app/privacy-policy",
           lastReviewed: "2025-06-01",
           inLanguage: "en",
-          isPartOf: { "@type": "WebSite", name: "Sunshine Solar Energy", url: "/" },
+          isPartOf: { "@type": "WebSite", name: "Sunshine Solar Energy", url: "https://sunshine-solar-spark.lovable.app/" },
         }),
       },
     ],
@@ -333,9 +335,9 @@ function PrivacyFooter() {
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Company</p>
           <ul className="mt-4 space-y-2.5 text-sm">
             <li><Link to="/" className="hover:text-amber transition-colors">Home</Link></li>
-            <li><a href="/#services" className="hover:text-amber transition-colors">Services</a></li>
-            <li><a href="/#projects" className="hover:text-amber transition-colors">Projects</a></li>
-            <li><a href="/#faq" className="hover:text-amber transition-colors">FAQ</a></li>
+            <li><Link to="/services" className="hover:text-amber transition-colors">Services</Link></li>
+            <li><Link to="/case-studies" className="hover:text-amber transition-colors">Projects</Link></li>
+            <li><Link to="/about" className="hover:text-amber transition-colors">About</Link></li>
           </ul>
         </div>
 
@@ -343,8 +345,8 @@ function PrivacyFooter() {
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Legal</p>
           <ul className="mt-4 space-y-2.5 text-sm">
             <li><Link to="/privacy-policy" className="text-amber font-medium">Privacy Policy</Link></li>
-            <li><Link to="/" className="hover:text-amber transition-colors">Terms & Conditions</Link></li>
-            <li><a href="/#calculator" className="hover:text-amber transition-colors">Contact Us</a></li>
+            <li><Link to="/terms-and-conditions" className="hover:text-amber transition-colors">Terms & Conditions</Link></li>
+            <li><Link to="/contact" className="hover:text-amber transition-colors">Contact Us</Link></li>
           </ul>
         </div>
       </div>
@@ -355,7 +357,7 @@ function PrivacyFooter() {
           </p>
           <div className="flex gap-5 text-xs text-muted-foreground">
             <Link to="/privacy-policy" className="hover:text-foreground transition-colors">Privacy</Link>
-            <Link to="/" className="hover:text-foreground transition-colors">Terms</Link>
+            <Link to="/terms-and-conditions" className="hover:text-foreground transition-colors">Terms</Link>
           </div>
         </div>
       </div>

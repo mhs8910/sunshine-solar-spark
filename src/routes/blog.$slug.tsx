@@ -29,7 +29,8 @@ export const Route = createFileRoute("/blog/$slug")({
   head: ({ loaderData }) => {
     if (!loaderData) return {};
     const { post } = loaderData;
-    const url = `/blog/${post.slug}`;
+    const SITE = "https://sunshine-solar-spark.lovable.app";
+    const url = `${SITE}/blog/${post.slug}`;
     return {
       meta: [
         { title: post.metaTitle },
@@ -74,8 +75,8 @@ export const Route = createFileRoute("/blog/$slug")({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: "/" },
-              { "@type": "ListItem", position: 2, name: "Blog", item: "/blog" },
+              { "@type": "ListItem", position: 1, name: "Home", item: `${SITE}/` },
+              { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE}/blog` },
               { "@type": "ListItem", position: 3, name: post.title, item: url },
             ],
           }),
