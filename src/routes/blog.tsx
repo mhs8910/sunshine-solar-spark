@@ -7,6 +7,8 @@ import { Navbar } from "@/components/site/Navbar";
 import { Reveal } from "@/components/site/Motion";
 import { POSTS, CATEGORIES, type BlogCategory } from "@/data/blog";
 
+const BLOG_URL = "https://sunshine-solar-spark.lovable.app/blog";
+
 export const Route = createFileRoute("/blog")({
   head: () => ({
     meta: [
@@ -23,10 +25,12 @@ export const Route = createFileRoute("/blog")({
           "Solar guides, net metering and electricity-savings articles from Lahore's premium solar installer.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "/blog" },
+      { property: "og:url", content: BLOG_URL },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Sunshine Solar Energy Blog" },
+      { name: "twitter:description", content: "Solar guides, net metering and electricity-savings articles from Lahore's premium solar installer." },
     ],
-    links: [{ rel: "canonical", href: "/blog" }],
+    links: [{ rel: "canonical", href: BLOG_URL }],
     scripts: [
       {
         type: "application/ld+json",
@@ -34,7 +38,7 @@ export const Route = createFileRoute("/blog")({
           "@context": "https://schema.org",
           "@type": "Blog",
           name: "Sunshine Solar Energy Blog",
-          url: "/blog",
+          url: BLOG_URL,
           publisher: {
             "@type": "Organization",
             name: "Sunshine Solar Energy",
@@ -44,7 +48,7 @@ export const Route = createFileRoute("/blog")({
             headline: p.title,
             datePublished: p.date,
             author: { "@type": "Person", name: p.author },
-            url: `/blog/${p.slug}`,
+            url: `https://sunshine-solar-spark.lovable.app/blog/${p.slug}`,
           })),
         }),
       },
