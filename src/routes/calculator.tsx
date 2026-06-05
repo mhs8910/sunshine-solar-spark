@@ -16,6 +16,14 @@ export const Route = createFileRoute("/calculator")({
       links,
       scripts: [
         ldScript(breadcrumbSchema([{ label: "Home", path: "/" }, { label: "Calculator", path: PATH }])),
+        ldScript(
+          webPageSchema({
+            title: TITLE,
+            description: DESC,
+            path: PATH,
+            breadcrumbs: [{ label: "Home", path: "/" }, { label: "Calculator", path: PATH }],
+          }),
+        ),
       ],
     };
   },

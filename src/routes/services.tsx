@@ -35,7 +35,26 @@ export const Route = createFileRoute("/services")({
       links,
       scripts: [
         ldScript(breadcrumbSchema([{ label: "Home", path: "/" }, { label: "Services", path: PATH }])),
+        ldScript(
+          webPageSchema({
+            title: TITLE,
+            description: DESC,
+            path: PATH,
+            pageType: "CollectionPage",
+            breadcrumbs: [{ label: "Home", path: "/" }, { label: "Services", path: PATH }],
+          }),
+        ),
         ldScript(faqSchema(FAQS)),
+        ...SERVICES.map((s) =>
+          ldScript(
+            serviceSchema({
+              name: s.title,
+              description: s.body,
+              path: `/services/${s.slug}`,
+              serviceType: s.title,
+            }),
+          ),
+        ),
         ldScript({
           "@context": "https://schema.org",
           "@type": "ItemList",

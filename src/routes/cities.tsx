@@ -29,6 +29,29 @@ export const Route = createFileRoute("/cities")({
       links,
       scripts: [
         ldScript(breadcrumbSchema([{ label: "Home", path: "/" }, { label: "Cities", path: PATH }])),
+        ldScript(
+          webPageSchema({
+            title: TITLE,
+            description: DESC,
+            path: PATH,
+            pageType: "CollectionPage",
+            breadcrumbs: [{ label: "Home", path: "/" }, { label: "Cities", path: PATH }],
+          }),
+        ),
+        ldScript({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Cities served by Sunshine Solar Energy",
+          itemListElement: CITIES.map((c, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            item: {
+              "@type": "City",
+              name: c.name,
+              containedInPlace: { "@type": "AdministrativeArea", name: c.area },
+            },
+          })),
+        }),
       ],
     };
   },

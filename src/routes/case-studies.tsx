@@ -55,6 +55,32 @@ export const Route = createFileRoute("/case-studies")({
       links,
       scripts: [
         ldScript(breadcrumbSchema([{ label: "Home", path: "/" }, { label: "Case Studies", path: PATH }])),
+        ldScript(
+          webPageSchema({
+            title: TITLE,
+            description: DESC,
+            path: PATH,
+            pageType: "CollectionPage",
+            breadcrumbs: [{ label: "Home", path: "/" }, { label: "Case Studies", path: PATH }],
+          }),
+        ),
+        ldScript({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Sunshine Solar customer case studies",
+          itemListElement: CASES.map((c, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            item: {
+              "@type": "Article",
+              headline: c.title,
+              about: c.system,
+              locationCreated: { "@type": "Place", name: c.location },
+              url: absoluteUrl(PATH),
+              publisher: { "@id": "https://sunshine-solar-spark.lovable.app/#organization" },
+            },
+          })),
+        }),
       ],
     };
   },

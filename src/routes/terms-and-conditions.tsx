@@ -28,6 +28,14 @@ export const Route = createFileRoute("/terms-and-conditions")({
       links,
       scripts: [
         ldScript(breadcrumbSchema([{ label: "Home", path: "/" }, { label: "Terms & Conditions", path: PATH }])),
+        ldScript(
+          webPageSchema({
+            title: TITLE,
+            description: DESC,
+            path: PATH,
+            breadcrumbs: [{ label: "Home", path: "/" }, { label: "Terms & Conditions", path: PATH }],
+          }),
+        ),
       ],
     };
   },
