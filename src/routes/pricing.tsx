@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { PageShell, PageHero } from "@/components/site/PageShell";
-import { buildPageHead, breadcrumbSchema, ldScript } from "@/lib/seo";
+import { buildPageHead, breadcrumbSchema, ldScript, webPageSchema } from "@/lib/seo";
 
 const PATH = "/pricing";
 const TITLE = "Solar System Prices in Pakistan 2026 | Sunshine Solar Energy";
@@ -36,6 +36,15 @@ export const Route = createFileRoute("/pricing")({
       links,
       scripts: [
         ldScript(breadcrumbSchema([{ label: "Home", path: "/" }, { label: "Pricing", path: PATH }])),
+        ldScript(
+          webPageSchema({
+            title: TITLE,
+            description: DESC,
+            path: PATH,
+            pageType: "CollectionPage",
+            breadcrumbs: [{ label: "Home", path: "/" }, { label: "Pricing", path: PATH }],
+          }),
+        ),
         ldScript({
           "@context": "https://schema.org",
           "@type": "ItemList",
@@ -45,7 +54,17 @@ export const Route = createFileRoute("/pricing")({
             item: {
               "@type": "Product",
               name: `${t.size} Solar System`,
-              offers: { "@type": "Offer", priceCurrency: "PKR", price: t.price.replace(/[^0-9]/g, "") },
+              description: `${t.size} solar system best for ${t.best.toLowerCase()}, generates ${t.units}.`,
+              brand: { "@type": "Brand", name: "Sunshine Solar Energy" },
+              category: "Solar Power System",
+              offers: {
+                "@type": "Offer",
+                priceCurrency: "PKR",
+                price: t.price.replace(/[^0-9]/g, ""),
+                availability: "https://schema.org/InStock",
+                url: "https://sunshine-solar-spark.lovable.app/pricing",
+                seller: { "@id": "https://sunshine-solar-spark.lovable.app/#localbusiness" },
+              },
             },
           })),
         }),

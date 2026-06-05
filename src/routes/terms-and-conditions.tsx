@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { PageShell, PageHero } from "@/components/site/PageShell";
-import { buildPageHead, breadcrumbSchema, ldScript } from "@/lib/seo";
+import { buildPageHead, breadcrumbSchema, ldScript, webPageSchema } from "@/lib/seo";
 
 const PATH = "/terms-and-conditions";
 const TITLE = "Terms & Conditions | Sunshine Solar Energy";
@@ -28,6 +28,14 @@ export const Route = createFileRoute("/terms-and-conditions")({
       links,
       scripts: [
         ldScript(breadcrumbSchema([{ label: "Home", path: "/" }, { label: "Terms & Conditions", path: PATH }])),
+        ldScript(
+          webPageSchema({
+            title: TITLE,
+            description: DESC,
+            path: PATH,
+            breadcrumbs: [{ label: "Home", path: "/" }, { label: "Terms & Conditions", path: PATH }],
+          }),
+        ),
       ],
     };
   },

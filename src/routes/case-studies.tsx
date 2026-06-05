@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { TrendingDown, MapPin, Zap, Receipt } from "lucide-react";
 import { PageShell, PageHero } from "@/components/site/PageShell";
-import { buildPageHead, breadcrumbSchema, ldScript } from "@/lib/seo";
+import { buildPageHead, breadcrumbSchema, ldScript, webPageSchema, absoluteUrl } from "@/lib/seo";
 
 const PATH = "/case-studies";
 const TITLE = "Solar Case Studies in Lahore | Sunshine Solar Energy";
@@ -55,6 +55,32 @@ export const Route = createFileRoute("/case-studies")({
       links,
       scripts: [
         ldScript(breadcrumbSchema([{ label: "Home", path: "/" }, { label: "Case Studies", path: PATH }])),
+        ldScript(
+          webPageSchema({
+            title: TITLE,
+            description: DESC,
+            path: PATH,
+            pageType: "CollectionPage",
+            breadcrumbs: [{ label: "Home", path: "/" }, { label: "Case Studies", path: PATH }],
+          }),
+        ),
+        ldScript({
+          "@context": "https://schema.org",
+          "@type": "ItemList",
+          name: "Sunshine Solar customer case studies",
+          itemListElement: CASES.map((c, i) => ({
+            "@type": "ListItem",
+            position: i + 1,
+            item: {
+              "@type": "Article",
+              headline: c.title,
+              about: c.system,
+              locationCreated: { "@type": "Place", name: c.location },
+              url: absoluteUrl(PATH),
+              publisher: { "@id": "https://sunshine-solar-spark.lovable.app/#organization" },
+            },
+          })),
+        }),
       ],
     };
   },

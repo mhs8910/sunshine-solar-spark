@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Award, Users, Target, Eye, MapPin, ShieldCheck, BadgeCheck, Sun } from "lucide-react";
 import { PageShell, PageHero } from "@/components/site/PageShell";
-import { buildPageHead, breadcrumbSchema, ldScript } from "@/lib/seo";
+import { buildPageHead, breadcrumbSchema, webPageSchema, ldScript } from "@/lib/seo";
 
 const PATH = "/about";
 const TITLE = "About Sunshine Solar Energy — Lahore's Trusted Solar Installer";
@@ -21,13 +21,15 @@ export const Route = createFileRoute("/about")({
             { label: "About", path: PATH },
           ]),
         ),
-        ldScript({
-          "@context": "https://schema.org",
-          "@type": "AboutPage",
-          name: TITLE,
-          description: DESC,
-          url: `https://sunshine-solar-spark.lovable.app${PATH}`,
-        }),
+        ldScript(
+          webPageSchema({
+            title: TITLE,
+            description: DESC,
+            path: PATH,
+            pageType: "AboutPage",
+            breadcrumbs: [{ label: "Home", path: "/" }, { label: "About", path: PATH }],
+          }),
+        ),
       ],
     };
   },

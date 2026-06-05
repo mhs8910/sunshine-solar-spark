@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FileText, ArrowRight, CheckCircle2, Zap } from "lucide-react";
 import { PageShell, PageHero } from "@/components/site/PageShell";
-import { buildPageHead, breadcrumbSchema, ldScript, faqSchema } from "@/lib/seo";
+import { buildPageHead, breadcrumbSchema, ldScript, faqSchema, webPageSchema, serviceSchema } from "@/lib/seo";
 
 const PATH = "/net-metering";
 const TITLE = "Net Metering in Pakistan — Complete Guide | Sunshine Solar";
@@ -47,6 +47,23 @@ export const Route = createFileRoute("/net-metering")({
       links,
       scripts: [
         ldScript(breadcrumbSchema([{ label: "Home", path: "/" }, { label: "Net Metering", path: PATH }])),
+        ldScript(
+          webPageSchema({
+            title: TITLE,
+            description: DESC,
+            path: PATH,
+            breadcrumbs: [{ label: "Home", path: "/" }, { label: "Net Metering", path: PATH }],
+          }),
+        ),
+        ldScript(
+          serviceSchema({
+            name: "Net Metering Services in Pakistan",
+            description:
+              "End-to-end LESCO, IESCO and K-Electric net metering applications, AEDB licensing and bidirectional meter installation by Sunshine Solar Energy.",
+            path: PATH,
+            serviceType: "Net Metering Application & Approval",
+          }),
+        ),
         ldScript(faqSchema(FAQS)),
       ],
     };

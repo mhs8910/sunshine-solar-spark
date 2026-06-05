@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Home, Building2, Factory, Plug, Wrench, Battery, MessageCircle, Sun, Zap, ArrowRight } from "lucide-react";
 import { PageShell, PageHero } from "@/components/site/PageShell";
-import { buildPageHead, breadcrumbSchema, ldScript, faqSchema } from "@/lib/seo";
+import { buildPageHead, breadcrumbSchema, ldScript, faqSchema, webPageSchema, serviceSchema } from "@/lib/seo";
 
 const PATH = "/services";
 const TITLE = "Solar Installation Services in Lahore | Sunshine Solar Energy";
@@ -35,7 +35,26 @@ export const Route = createFileRoute("/services")({
       links,
       scripts: [
         ldScript(breadcrumbSchema([{ label: "Home", path: "/" }, { label: "Services", path: PATH }])),
+        ldScript(
+          webPageSchema({
+            title: TITLE,
+            description: DESC,
+            path: PATH,
+            pageType: "CollectionPage",
+            breadcrumbs: [{ label: "Home", path: "/" }, { label: "Services", path: PATH }],
+          }),
+        ),
         ldScript(faqSchema(FAQS)),
+        ...SERVICES.map((s) =>
+          ldScript(
+            serviceSchema({
+              name: s.title,
+              description: s.body,
+              path: `/services/${s.slug}`,
+              serviceType: s.title,
+            }),
+          ),
+        ),
         ldScript({
           "@context": "https://schema.org",
           "@type": "ItemList",
