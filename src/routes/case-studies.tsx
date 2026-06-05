@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { TrendingDown, MapPin, Zap, Receipt } from "lucide-react";
 import { PageShell, PageHero } from "@/components/site/PageShell";
-import { buildPageHead, breadcrumbSchema, ldScript } from "@/lib/seo";
+import { buildPageHead, breadcrumbSchema, ldScript, webPageSchema, absoluteUrl } from "@/lib/seo";
 
 const PATH = "/case-studies";
 const TITLE = "Solar Case Studies in Lahore | Sunshine Solar Energy";

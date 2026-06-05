@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FileText, ArrowRight, CheckCircle2, Zap } from "lucide-react";
 import { PageShell, PageHero } from "@/components/site/PageShell";
-import { buildPageHead, breadcrumbSchema, ldScript, faqSchema } from "@/lib/seo";
+import { buildPageHead, breadcrumbSchema, ldScript, faqSchema, webPageSchema, serviceSchema } from "@/lib/seo";
 
 const PATH = "/net-metering";
 const TITLE = "Net Metering in Pakistan — Complete Guide | Sunshine Solar";
