@@ -1,12 +1,24 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Phone, Mail, MapPin, MessageCircle, Clock } from "lucide-react";
 import { PageShell, PageHero } from "@/components/site/PageShell";
-import { buildPageHead, breadcrumbSchema, ldScript, SITE_PHONE, SITE_WHATSAPP } from "@/lib/seo";
+import {
+  buildPageHead,
+  breadcrumbSchema,
+  webPageSchema,
+  ldScript,
+  SITE_PHONE,
+  SITE_WHATSAPP,
+  SITE_EMAIL,
+  LOCALBUSINESS_ID,
+  absoluteUrl,
+} from "@/lib/seo";
 
 const PATH = "/contact";
 const TITLE = "Contact Sunshine Solar Energy — Lahore Solar Installer";
 const DESC =
   "Get a free solar quote in 24 hours. Call, WhatsApp or email Sunshine Solar Energy — Lahore's premium solar installation team for homes and businesses.";
+
+const CRUMBS = [{ label: "Home", path: "/" }, { label: "Contact", path: PATH }];
 
 export const Route = createFileRoute("/contact")({
   head: () => {
@@ -15,12 +27,47 @@ export const Route = createFileRoute("/contact")({
       meta,
       links,
       scripts: [
-        ldScript(breadcrumbSchema([{ label: "Home", path: "/" }, { label: "Contact", path: PATH }])),
+        ldScript(breadcrumbSchema(CRUMBS)),
+        ldScript(
+          webPageSchema({
+            title: TITLE,
+            description: DESC,
+            path: PATH,
+            pageType: "ContactPage",
+            breadcrumbs: CRUMBS,
+          }),
+        ),
         ldScript({
           "@context": "https://schema.org",
           "@type": "ContactPage",
+          "@id": `${absoluteUrl(PATH)}#contactpage`,
+          url: absoluteUrl(PATH),
           name: TITLE,
-          url: `https://sunshine-solar-spark.lovable.app${PATH}`,
+          description: DESC,
+          mainEntity: { "@id": LOCALBUSINESS_ID },
+          contactPoint: [
+            {
+              "@type": "ContactPoint",
+              telephone: SITE_PHONE,
+              email: SITE_EMAIL,
+              contactType: "sales",
+              areaServed: "PK",
+              availableLanguage: ["English", "Urdu"],
+              hoursAvailable: {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                opens: "09:00",
+                closes: "20:00",
+              },
+            },
+            {
+              "@type": "ContactPoint",
+              telephone: `+${SITE_WHATSAPP}`,
+              contactType: "customer support",
+              areaServed: "PK",
+              availableLanguage: ["English", "Urdu"],
+            },
+          ],
         }),
       ],
     };
