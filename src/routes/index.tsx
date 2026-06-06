@@ -457,24 +457,26 @@ function Index() {
           </Reveal>
           <Stagger className="grid grid-cols-2 gap-3">
             {[
-              "Solar company in Lahore",
-              "Solar installation in Lahore",
-              "Net metering in Lahore",
-              "Solar panel price in Lahore",
-              "5 kW solar system price",
-              "10 kW solar system price",
-              "Commercial solar Punjab",
-              "Industrial solar Lahore",
-            ].map((k) => (
+              { k: "Solar company in Lahore", to: "/about" as const },
+              { k: "Solar installation in Lahore", to: "/services" as const },
+              { k: "Net metering in Lahore", to: "/net-metering" as const },
+              { k: "Solar panel price in Lahore", to: "/pricing" as const },
+              { k: "5 kW solar system price", to: "/pricing" as const },
+              { k: "10 kW solar system price", to: "/pricing" as const },
+              { k: "Commercial solar Punjab", to: "/services" as const },
+              { k: "Industrial solar Lahore", to: "/services" as const },
+            ].map(({ k, to }) => (
               <StaggerItem key={k}>
-                <motion.div
-                  whileHover={{ y: -4 }}
-                  transition={{ type: "spring", stiffness: 280, damping: 18 }}
-                  className="rounded-xl bg-paper/80 backdrop-blur border border-border p-4 hover:border-amber/40 hover:shadow-soft"
-                >
-                  <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Service</p>
-                  <p className="font-display font-semibold text-sm mt-1">{k}</p>
-                </motion.div>
+                <Link to={to} className="block">
+                  <motion.div
+                    whileHover={{ y: -4 }}
+                    transition={{ type: "spring", stiffness: 280, damping: 18 }}
+                    className="rounded-xl bg-paper/80 backdrop-blur border border-border p-4 hover:border-amber/40 hover:shadow-soft"
+                  >
+                    <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Service</p>
+                    <p className="font-display font-semibold text-sm mt-1">{k}</p>
+                  </motion.div>
+                </Link>
               </StaggerItem>
             ))}
           </Stagger>
