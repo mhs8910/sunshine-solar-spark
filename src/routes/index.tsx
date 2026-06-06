@@ -517,19 +517,28 @@ function Index() {
                 under 24 hours — no obligation.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <MagneticButton
-                  href="#calculator"
-                  className="rounded-full bg-amber-gradient text-foreground px-6 py-3.5 text-sm font-semibold shadow-amber-glow"
+                <Link
+                  to="/calculator"
+                  className="inline-flex items-center gap-2 rounded-full bg-amber-gradient text-foreground px-6 py-3.5 text-sm font-semibold shadow-amber-glow hover:opacity-95 transition"
                 >
                   Get Free Solar Estimate <ArrowRight className="h-4 w-4" />
-                </MagneticButton>
-                <MagneticButton
-                  href="https://wa.me/923004242895"
-                  className="rounded-full bg-card/10 border border-card/20 text-primary-foreground px-6 py-3.5 text-sm font-semibold hover:bg-card/20 transition"
+                </Link>
+                <a
+                  href="tel:+923004242895"
+                  className="inline-flex items-center gap-2 rounded-full bg-card text-foreground px-6 py-3.5 text-sm font-semibold hover:opacity-95 transition"
                 >
-                  <MessageCircle className="h-4 w-4" /> WhatsApp Sunshine Solar
-                </MagneticButton>
+                  <Phone className="h-4 w-4" /> +92-300-4242895
+                </a>
+                <a
+                  href="https://wa.me/923004242895"
+                  className="inline-flex items-center gap-2 rounded-full bg-card/10 border border-card/20 text-primary-foreground px-6 py-3.5 text-sm font-semibold hover:bg-card/20 transition"
+                >
+                  <MessageCircle className="h-4 w-4" /> WhatsApp
+                </a>
               </div>
+              <p className="mt-5 text-xs text-primary-foreground/60 font-mono">
+                Free site survey · No obligation · Response within 2 working hours
+              </p>
             </div>
           </div>
         </Reveal>
