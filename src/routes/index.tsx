@@ -889,20 +889,26 @@ function Footer() {
         <div>
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Company</p>
           <ul className="mt-4 space-y-2.5 text-sm">
-            <li><a href="#services" className="hover:text-amber transition-colors">Services</a></li>
-            <li><a href="#projects" className="hover:text-amber transition-colors">Projects</a></li>
-            <li><a href="#equipment" className="hover:text-amber transition-colors">Equipment</a></li>
+            <li><Link to="/services" className="hover:text-amber transition-colors">Services</Link></li>
+            <li><Link to="/pricing" className="hover:text-amber transition-colors">Pricing</Link></li>
+            <li><Link to="/net-metering" className="hover:text-amber transition-colors">Net Metering</Link></li>
+            <li><Link to="/calculator" className="hover:text-amber transition-colors">Solar Calculator</Link></li>
+            <li><Link to="/case-studies" className="hover:text-amber transition-colors">Case Studies</Link></li>
+            <li><Link to="/cities" className="hover:text-amber transition-colors">Service Areas</Link></li>
             <li><Link to="/blog" className="hover:text-amber transition-colors">Blog</Link></li>
-            <li><a href="#faq" className="hover:text-amber transition-colors">FAQ</a></li>
+            <li><Link to="/about" className="hover:text-amber transition-colors">About</Link></li>
           </ul>
         </div>
 
         <div>
-          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Legal</p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Contact & Legal</p>
           <ul className="mt-4 space-y-2.5 text-sm">
+            <li><Link to="/contact" className="hover:text-amber transition-colors">Contact Us</Link></li>
+            <li><a href="tel:+923004242895" className="hover:text-amber transition-colors">+92-300-4242895</a></li>
+            <li><a href="https://wa.me/923004242895" className="hover:text-amber transition-colors">WhatsApp</a></li>
+            <li><a href="mailto:info@sunshinesolarltd.com" className="hover:text-amber transition-colors">info@sunshinesolarltd.com</a></li>
             <li><Link to="/privacy-policy" className="hover:text-amber transition-colors">Privacy Policy</Link></li>
-            <li><Link to="/" className="hover:text-amber transition-colors">Terms & Conditions</Link></li>
-            <li><a href="#calculator" className="hover:text-amber transition-colors">Contact Us</a></li>
+            <li><Link to="/terms-and-conditions" className="hover:text-amber transition-colors">Terms & Conditions</Link></li>
           </ul>
         </div>
       </div>
