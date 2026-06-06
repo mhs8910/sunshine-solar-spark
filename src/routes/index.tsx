@@ -304,10 +304,10 @@ function Index() {
                       <Metric label="Payback" value={c.payback} />
                     </div>
                     <p className="mt-4 text-xs text-muted-foreground font-mono">{c.eqp}</p>
-                    <a href="#calculator" className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground hover:text-amber transition group/link">
+                    <Link to="/case-studies" className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground hover:text-amber transition group/link">
                       See full project
                       <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
-                    </a>
+                    </Link>
                   </div>
                 </article>
               </TiltCard>
