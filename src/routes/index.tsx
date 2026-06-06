@@ -259,10 +259,10 @@ function Index() {
                       </li>
                     ))}
                   </ul>
-                  <a href="#calculator" className="mt-6 group/btn relative overflow-hidden inline-flex items-center justify-between rounded-xl border border-border px-4 py-3 text-sm font-medium hover:bg-foreground hover:text-primary-foreground transition">
-                    <span className="relative z-10">Get Quote</span>
+                  <Link to="/services" className="mt-6 group/btn relative overflow-hidden inline-flex items-center justify-between rounded-xl border border-border px-4 py-3 text-sm font-medium hover:bg-foreground hover:text-primary-foreground transition">
+                    <span className="relative z-10">Explore {label}</span>
                     <ArrowUpRight className="h-4 w-4 relative z-10 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
-                  </a>
+                  </Link>
                 </div>
               </TiltCard>
             </StaggerItem>
