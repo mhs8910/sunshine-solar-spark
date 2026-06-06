@@ -807,12 +807,12 @@ function VideoGallery() {
                 <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Featured project</p>
                 <h3 className="mt-1 font-display text-2xl font-semibold">35 kW commercial install · Gulberg</h3>
                 <p className="mt-2 text-sm text-muted-foreground">From site survey to first kWh — full project walkthrough with the client.</p>
-                <MagneticButton
-                  href="#calculator"
-                  className="mt-5 rounded-full bg-foreground text-primary-foreground px-5 py-2.5 text-sm font-semibold"
+                <Link
+                  to="/calculator"
+                  className="mt-5 inline-flex items-center gap-2 rounded-full bg-foreground text-primary-foreground px-5 py-2.5 text-sm font-semibold hover:opacity-95 transition"
                 >
                   Request Similar System <ArrowRight className="h-4 w-4" />
-                </MagneticButton>
+                </Link>
               </div>
             </div>
           </TiltCard>
