@@ -564,9 +564,9 @@ function Hero() {
           </Reveal>
           <Reveal delay={0.08}>
             <h1 className="mt-6 font-display text-4xl sm:text-5xl lg:text-[64px] leading-[1.05] font-semibold tracking-tight text-balance">
-              Cut your electricity bill by up to{" "}
+              Lahore's trusted solar company —{" "}
               <span className="relative inline-block">
-                <span className="relative z-10 bg-gradient-to-br from-foreground via-foreground to-[#5B6573] bg-clip-text text-transparent">70–80%</span>
+                <span className="relative z-10 bg-gradient-to-br from-foreground via-foreground to-[#5B6573] bg-clip-text text-transparent">cut your bill 70–80%</span>
                 <motion.span
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
@@ -576,38 +576,54 @@ function Hero() {
                   aria-hidden
                 />
               </span>{" "}
-              with smart solar.
+              with tier-1 solar.
             </h1>
           </Reveal>
           <Reveal delay={0.18}>
             <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-xl">
-              Lahore-based solar installation experts for homes, businesses and industries — with AI-powered sizing,
-              net metering support and long-term system monitoring.
+              Premium residential, commercial & industrial solar installation in Lahore with end-to-end LESCO
+              net metering, AI-powered sizing and 25-year warranties. 600+ systems installed across Punjab.
             </p>
+          </Reveal>
+
+          <Reveal delay={0.22}>
+            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:text-sm">
+              <span className="inline-flex items-center gap-1.5">
+                <span className="flex text-amber">{Array.from({length:5}).map((_,i)=><Star key={i} className="h-3.5 w-3.5 fill-current" />)}</span>
+                <span className="font-semibold">4.9</span>
+                <span className="text-muted-foreground">· 220+ Google reviews</span>
+              </span>
+              <span className="text-muted-foreground hidden sm:inline">·</span>
+              <span className="inline-flex items-center gap-1.5 text-foreground/80"><BadgeCheck className="h-4 w-4 text-amber" /> 600+ installs · 8 yrs in Lahore</span>
+            </div>
           </Reveal>
 
           <Reveal delay={0.28}>
             <div className="mt-8 flex flex-wrap gap-3">
-              <MagneticButton
-                href="#calculator"
-                className="rounded-full bg-foreground text-primary-foreground px-6 py-3.5 text-sm font-semibold shadow-elevated"
+              <Link
+                to="/calculator"
+                className="group inline-flex items-center gap-2 rounded-full bg-foreground text-primary-foreground px-6 py-3.5 text-sm font-semibold shadow-elevated hover:opacity-95 transition"
               >
                 Get Free Solar Estimate
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </MagneticButton>
-              <MagneticButton
-                href="#videos"
-                className="rounded-full bg-card/80 backdrop-blur border border-border px-6 py-3.5 text-sm font-semibold hover:bg-muted transition"
-                strength={0.2}
+              </Link>
+              <a
+                href="tel:+923004242895"
+                className="inline-flex items-center gap-2 rounded-full bg-amber-gradient text-foreground px-6 py-3.5 text-sm font-semibold shadow-amber-glow hover:opacity-95 transition"
               >
-                <PlayCircle className="h-4 w-4 text-amber" />
-                Watch Project Videos
-              </MagneticButton>
+                <Phone className="h-4 w-4" /> Call +92-300-4242895
+              </a>
+              <a
+                href="https://wa.me/923004242895"
+                className="inline-flex items-center gap-2 rounded-full bg-card/80 backdrop-blur border border-border px-6 py-3.5 text-sm font-semibold hover:bg-muted transition"
+              >
+                <MessageCircle className="h-4 w-4 text-amber" /> WhatsApp
+              </a>
             </div>
           </Reveal>
 
           <Stagger className="mt-10 flex flex-wrap gap-x-6 gap-y-3" stagger={0.05}>
-            {["Lahore Based", "Residential + Commercial + Industrial", "Net Metering", "Tier-1 Equipment", "24/7 Monitoring"].map((t) => (
+            {["LESCO Net Metering", "Tier-1 Jinko · Huawei", "25-yr Panel Warranty", "24/7 Monitoring", "Free Site Survey"].map((t) => (
               <StaggerItem key={t}>
                 <div className="inline-flex items-center gap-1.5 text-xs sm:text-sm text-foreground/75">
                   <CheckCircle2 className="h-4 w-4 text-amber" /> {t}
