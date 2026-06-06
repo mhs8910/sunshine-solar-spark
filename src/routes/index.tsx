@@ -28,17 +28,24 @@ import { LoadingScreen } from "@/components/site/LoadingScreen";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Sunshine Solar Energy — Solar Installation in Lahore" },
-      { name: "description", content: "Cut your electricity bill by 70–80% with Lahore's premium solar installer. AI-powered sizing, net metering and tier-1 panels for homes and businesses." },
-      { property: "og:title", content: "Sunshine Solar Energy — Lahore" },
-      { property: "og:description", content: "Premium residential, commercial & industrial solar in Lahore. Free estimate in 24 hours." },
+      { title: "Solar Company in Lahore | Net Metering & Tier-1 Panels | Sunshine Solar Energy" },
+      { name: "description", content: "Lahore's top-rated solar company. Cut bills 70–80% with tier-1 panels, LESCO net metering & 25-yr warranties. 600+ installs · 4.9★. Free estimate in 24 hours." },
+      { name: "keywords", content: "solar company Lahore, solar installation Lahore, net metering Lahore, solar panel price Pakistan, 5kW solar system price, 10kW solar system, residential solar Lahore, commercial solar Pakistan, industrial solar Punjab" },
+      { name: "geo.region", content: "PK-PB" },
+      { name: "geo.placename", content: "Lahore" },
+      { name: "geo.position", content: "31.5204;74.3587" },
+      { name: "ICBM", content: "31.5204, 74.3587" },
+      { property: "og:title", content: "Solar Company in Lahore | Sunshine Solar Energy" },
+      { property: "og:description", content: "Premium residential, commercial & industrial solar in Lahore. 600+ installs · 4.9★ · Free estimate in 24 hours." },
       { property: "og:url", content: "https://sunshine-solar-spark.lovable.app/" },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "en_PK" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Sunshine Solar Energy — Lahore" },
-      { name: "twitter:description", content: "Premium residential, commercial & industrial solar in Lahore. Free estimate in 24 hours." },
+      { name: "twitter:title", content: "Solar Company in Lahore | Sunshine Solar Energy" },
+      { name: "twitter:description", content: "Cut bills 70–80%. Tier-1 panels, LESCO net metering & 25-yr warranties. Free estimate in 24 hours." },
     ],
     links: [{ rel: "canonical", href: "https://sunshine-solar-spark.lovable.app/" }],
+
     scripts: [
       {
         type: "application/ld+json",
