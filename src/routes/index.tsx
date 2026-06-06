@@ -28,17 +28,24 @@ import { LoadingScreen } from "@/components/site/LoadingScreen";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Sunshine Solar Energy — Solar Installation in Lahore" },
-      { name: "description", content: "Cut your electricity bill by 70–80% with Lahore's premium solar installer. AI-powered sizing, net metering and tier-1 panels for homes and businesses." },
-      { property: "og:title", content: "Sunshine Solar Energy — Lahore" },
-      { property: "og:description", content: "Premium residential, commercial & industrial solar in Lahore. Free estimate in 24 hours." },
+      { title: "Solar Company in Lahore | Net Metering & Tier-1 Panels | Sunshine Solar Energy" },
+      { name: "description", content: "Lahore's top-rated solar company. Cut bills 70–80% with tier-1 panels, LESCO net metering & 25-yr warranties. 600+ installs · 4.9★. Free estimate in 24 hours." },
+      { name: "keywords", content: "solar company Lahore, solar installation Lahore, net metering Lahore, solar panel price Pakistan, 5kW solar system price, 10kW solar system, residential solar Lahore, commercial solar Pakistan, industrial solar Punjab" },
+      { name: "geo.region", content: "PK-PB" },
+      { name: "geo.placename", content: "Lahore" },
+      { name: "geo.position", content: "31.5204;74.3587" },
+      { name: "ICBM", content: "31.5204, 74.3587" },
+      { property: "og:title", content: "Solar Company in Lahore | Sunshine Solar Energy" },
+      { property: "og:description", content: "Premium residential, commercial & industrial solar in Lahore. 600+ installs · 4.9★ · Free estimate in 24 hours." },
       { property: "og:url", content: "https://sunshine-solar-spark.lovable.app/" },
       { property: "og:type", content: "website" },
+      { property: "og:locale", content: "en_PK" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Sunshine Solar Energy — Lahore" },
-      { name: "twitter:description", content: "Premium residential, commercial & industrial solar in Lahore. Free estimate in 24 hours." },
+      { name: "twitter:title", content: "Solar Company in Lahore | Sunshine Solar Energy" },
+      { name: "twitter:description", content: "Cut bills 70–80%. Tier-1 panels, LESCO net metering & 25-yr warranties. Free estimate in 24 hours." },
     ],
     links: [{ rel: "canonical", href: "https://sunshine-solar-spark.lovable.app/" }],
+
     scripts: [
       {
         type: "application/ld+json",
@@ -252,10 +259,10 @@ function Index() {
                       </li>
                     ))}
                   </ul>
-                  <a href="#calculator" className="mt-6 group/btn relative overflow-hidden inline-flex items-center justify-between rounded-xl border border-border px-4 py-3 text-sm font-medium hover:bg-foreground hover:text-primary-foreground transition">
-                    <span className="relative z-10">Get Quote</span>
+                  <Link to="/services" className="mt-6 group/btn relative overflow-hidden inline-flex items-center justify-between rounded-xl border border-border px-4 py-3 text-sm font-medium hover:bg-foreground hover:text-primary-foreground transition">
+                    <span className="relative z-10">Explore {label}</span>
                     <ArrowUpRight className="h-4 w-4 relative z-10 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
-                  </a>
+                  </Link>
                 </div>
               </TiltCard>
             </StaggerItem>
@@ -297,10 +304,10 @@ function Index() {
                       <Metric label="Payback" value={c.payback} />
                     </div>
                     <p className="mt-4 text-xs text-muted-foreground font-mono">{c.eqp}</p>
-                    <a href="#calculator" className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground hover:text-amber transition group/link">
+                    <Link to="/case-studies" className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground hover:text-amber transition group/link">
                       See full project
                       <ArrowRight className="h-4 w-4 transition-transform group-hover/link:translate-x-1" />
-                    </a>
+                    </Link>
                   </div>
                 </article>
               </TiltCard>
@@ -450,24 +457,26 @@ function Index() {
           </Reveal>
           <Stagger className="grid grid-cols-2 gap-3">
             {[
-              "Solar company in Lahore",
-              "Solar installation in Lahore",
-              "Net metering in Lahore",
-              "Solar panel price in Lahore",
-              "5 kW solar system price",
-              "10 kW solar system price",
-              "Commercial solar Punjab",
-              "Industrial solar Lahore",
-            ].map((k) => (
+              { k: "Solar company in Lahore", to: "/about" as const },
+              { k: "Solar installation in Lahore", to: "/services" as const },
+              { k: "Net metering in Lahore", to: "/net-metering" as const },
+              { k: "Solar panel price in Lahore", to: "/pricing" as const },
+              { k: "5 kW solar system price", to: "/pricing" as const },
+              { k: "10 kW solar system price", to: "/pricing" as const },
+              { k: "Commercial solar Punjab", to: "/services" as const },
+              { k: "Industrial solar Lahore", to: "/services" as const },
+            ].map(({ k, to }) => (
               <StaggerItem key={k}>
-                <motion.div
-                  whileHover={{ y: -4 }}
-                  transition={{ type: "spring", stiffness: 280, damping: 18 }}
-                  className="rounded-xl bg-paper/80 backdrop-blur border border-border p-4 hover:border-amber/40 hover:shadow-soft"
-                >
-                  <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Service</p>
-                  <p className="font-display font-semibold text-sm mt-1">{k}</p>
-                </motion.div>
+                <Link to={to} className="block">
+                  <motion.div
+                    whileHover={{ y: -4 }}
+                    transition={{ type: "spring", stiffness: 280, damping: 18 }}
+                    className="rounded-xl bg-paper/80 backdrop-blur border border-border p-4 hover:border-amber/40 hover:shadow-soft"
+                  >
+                    <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">Service</p>
+                    <p className="font-display font-semibold text-sm mt-1">{k}</p>
+                  </motion.div>
+                </Link>
               </StaggerItem>
             ))}
           </Stagger>
@@ -508,19 +517,28 @@ function Index() {
                 under 24 hours — no obligation.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <MagneticButton
-                  href="#calculator"
-                  className="rounded-full bg-amber-gradient text-foreground px-6 py-3.5 text-sm font-semibold shadow-amber-glow"
+                <Link
+                  to="/calculator"
+                  className="inline-flex items-center gap-2 rounded-full bg-amber-gradient text-foreground px-6 py-3.5 text-sm font-semibold shadow-amber-glow hover:opacity-95 transition"
                 >
                   Get Free Solar Estimate <ArrowRight className="h-4 w-4" />
-                </MagneticButton>
-                <MagneticButton
-                  href="https://wa.me/923004242895"
-                  className="rounded-full bg-card/10 border border-card/20 text-primary-foreground px-6 py-3.5 text-sm font-semibold hover:bg-card/20 transition"
+                </Link>
+                <a
+                  href="tel:+923004242895"
+                  className="inline-flex items-center gap-2 rounded-full bg-card text-foreground px-6 py-3.5 text-sm font-semibold hover:opacity-95 transition"
                 >
-                  <MessageCircle className="h-4 w-4" /> WhatsApp Sunshine Solar
-                </MagneticButton>
+                  <Phone className="h-4 w-4" /> +92-300-4242895
+                </a>
+                <a
+                  href="https://wa.me/923004242895"
+                  className="inline-flex items-center gap-2 rounded-full bg-card/10 border border-card/20 text-primary-foreground px-6 py-3.5 text-sm font-semibold hover:bg-card/20 transition"
+                >
+                  <MessageCircle className="h-4 w-4" /> WhatsApp
+                </a>
               </div>
+              <p className="mt-5 text-xs text-primary-foreground/60 font-mono">
+                Free site survey · No obligation · Response within 2 working hours
+              </p>
             </div>
           </div>
         </Reveal>
@@ -557,9 +575,9 @@ function Hero() {
           </Reveal>
           <Reveal delay={0.08}>
             <h1 className="mt-6 font-display text-4xl sm:text-5xl lg:text-[64px] leading-[1.05] font-semibold tracking-tight text-balance">
-              Cut your electricity bill by up to{" "}
+              Lahore's trusted solar company —{" "}
               <span className="relative inline-block">
-                <span className="relative z-10 bg-gradient-to-br from-foreground via-foreground to-[#5B6573] bg-clip-text text-transparent">70–80%</span>
+                <span className="relative z-10 bg-gradient-to-br from-foreground via-foreground to-[#5B6573] bg-clip-text text-transparent">cut your bill 70–80%</span>
                 <motion.span
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
@@ -569,38 +587,54 @@ function Hero() {
                   aria-hidden
                 />
               </span>{" "}
-              with smart solar.
+              with tier-1 solar.
             </h1>
           </Reveal>
           <Reveal delay={0.18}>
             <p className="mt-6 text-base sm:text-lg text-muted-foreground max-w-xl">
-              Lahore-based solar installation experts for homes, businesses and industries — with AI-powered sizing,
-              net metering support and long-term system monitoring.
+              Premium residential, commercial & industrial solar installation in Lahore with end-to-end LESCO
+              net metering, AI-powered sizing and 25-year warranties. 600+ systems installed across Punjab.
             </p>
+          </Reveal>
+
+          <Reveal delay={0.22}>
+            <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs sm:text-sm">
+              <span className="inline-flex items-center gap-1.5">
+                <span className="flex text-amber">{Array.from({length:5}).map((_,i)=><Star key={i} className="h-3.5 w-3.5 fill-current" />)}</span>
+                <span className="font-semibold">4.9</span>
+                <span className="text-muted-foreground">· 220+ Google reviews</span>
+              </span>
+              <span className="text-muted-foreground hidden sm:inline">·</span>
+              <span className="inline-flex items-center gap-1.5 text-foreground/80"><BadgeCheck className="h-4 w-4 text-amber" /> 600+ installs · 8 yrs in Lahore</span>
+            </div>
           </Reveal>
 
           <Reveal delay={0.28}>
             <div className="mt-8 flex flex-wrap gap-3">
-              <MagneticButton
-                href="#calculator"
-                className="rounded-full bg-foreground text-primary-foreground px-6 py-3.5 text-sm font-semibold shadow-elevated"
+              <Link
+                to="/calculator"
+                className="group inline-flex items-center gap-2 rounded-full bg-foreground text-primary-foreground px-6 py-3.5 text-sm font-semibold shadow-elevated hover:opacity-95 transition"
               >
                 Get Free Solar Estimate
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-              </MagneticButton>
-              <MagneticButton
-                href="#videos"
-                className="rounded-full bg-card/80 backdrop-blur border border-border px-6 py-3.5 text-sm font-semibold hover:bg-muted transition"
-                strength={0.2}
+              </Link>
+              <a
+                href="tel:+923004242895"
+                className="inline-flex items-center gap-2 rounded-full bg-amber-gradient text-foreground px-6 py-3.5 text-sm font-semibold shadow-amber-glow hover:opacity-95 transition"
               >
-                <PlayCircle className="h-4 w-4 text-amber" />
-                Watch Project Videos
-              </MagneticButton>
+                <Phone className="h-4 w-4" /> Call +92-300-4242895
+              </a>
+              <a
+                href="https://wa.me/923004242895"
+                className="inline-flex items-center gap-2 rounded-full bg-card/80 backdrop-blur border border-border px-6 py-3.5 text-sm font-semibold hover:bg-muted transition"
+              >
+                <MessageCircle className="h-4 w-4 text-amber" /> WhatsApp
+              </a>
             </div>
           </Reveal>
 
           <Stagger className="mt-10 flex flex-wrap gap-x-6 gap-y-3" stagger={0.05}>
-            {["Lahore Based", "Residential + Commercial + Industrial", "Net Metering", "Tier-1 Equipment", "24/7 Monitoring"].map((t) => (
+            {["LESCO Net Metering", "Tier-1 Jinko · Huawei", "25-yr Panel Warranty", "24/7 Monitoring", "Free Site Survey"].map((t) => (
               <StaggerItem key={t}>
                 <div className="inline-flex items-center gap-1.5 text-xs sm:text-sm text-foreground/75">
                   <CheckCircle2 className="h-4 w-4 text-amber" /> {t}
@@ -773,12 +807,12 @@ function VideoGallery() {
                 <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Featured project</p>
                 <h3 className="mt-1 font-display text-2xl font-semibold">35 kW commercial install · Gulberg</h3>
                 <p className="mt-2 text-sm text-muted-foreground">From site survey to first kWh — full project walkthrough with the client.</p>
-                <MagneticButton
-                  href="#calculator"
-                  className="mt-5 rounded-full bg-foreground text-primary-foreground px-5 py-2.5 text-sm font-semibold"
+                <Link
+                  to="/calculator"
+                  className="mt-5 inline-flex items-center gap-2 rounded-full bg-foreground text-primary-foreground px-5 py-2.5 text-sm font-semibold hover:opacity-95 transition"
                 >
                   Request Similar System <ArrowRight className="h-4 w-4" />
-                </MagneticButton>
+                </Link>
               </div>
             </div>
           </TiltCard>
@@ -864,20 +898,26 @@ function Footer() {
         <div>
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Company</p>
           <ul className="mt-4 space-y-2.5 text-sm">
-            <li><a href="#services" className="hover:text-amber transition-colors">Services</a></li>
-            <li><a href="#projects" className="hover:text-amber transition-colors">Projects</a></li>
-            <li><a href="#equipment" className="hover:text-amber transition-colors">Equipment</a></li>
+            <li><Link to="/services" className="hover:text-amber transition-colors">Services</Link></li>
+            <li><Link to="/pricing" className="hover:text-amber transition-colors">Pricing</Link></li>
+            <li><Link to="/net-metering" className="hover:text-amber transition-colors">Net Metering</Link></li>
+            <li><Link to="/calculator" className="hover:text-amber transition-colors">Solar Calculator</Link></li>
+            <li><Link to="/case-studies" className="hover:text-amber transition-colors">Case Studies</Link></li>
+            <li><Link to="/cities" className="hover:text-amber transition-colors">Service Areas</Link></li>
             <li><Link to="/blog" className="hover:text-amber transition-colors">Blog</Link></li>
-            <li><a href="#faq" className="hover:text-amber transition-colors">FAQ</a></li>
+            <li><Link to="/about" className="hover:text-amber transition-colors">About</Link></li>
           </ul>
         </div>
 
         <div>
-          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Legal</p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">Contact & Legal</p>
           <ul className="mt-4 space-y-2.5 text-sm">
+            <li><Link to="/contact" className="hover:text-amber transition-colors">Contact Us</Link></li>
+            <li><a href="tel:+923004242895" className="hover:text-amber transition-colors">+92-300-4242895</a></li>
+            <li><a href="https://wa.me/923004242895" className="hover:text-amber transition-colors">WhatsApp</a></li>
+            <li><a href="mailto:info@sunshinesolarltd.com" className="hover:text-amber transition-colors">info@sunshinesolarltd.com</a></li>
             <li><Link to="/privacy-policy" className="hover:text-amber transition-colors">Privacy Policy</Link></li>
-            <li><Link to="/" className="hover:text-amber transition-colors">Terms & Conditions</Link></li>
-            <li><a href="#calculator" className="hover:text-amber transition-colors">Contact Us</a></li>
+            <li><Link to="/terms-and-conditions" className="hover:text-amber transition-colors">Terms & Conditions</Link></li>
           </ul>
         </div>
       </div>
@@ -889,7 +929,7 @@ function Footer() {
           <div className="flex gap-5 text-xs text-muted-foreground">
             <Link to="/blog" className="hover:text-foreground transition-colors">Blog</Link>
             <Link to="/privacy-policy" className="hover:text-foreground transition-colors">Privacy</Link>
-            <Link to="/" className="hover:text-foreground transition-colors">Terms</Link>
+            <Link to="/terms-and-conditions" className="hover:text-foreground transition-colors">Terms</Link>
           </div>
         </div>
       </div>
