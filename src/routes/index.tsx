@@ -920,7 +920,7 @@ function Footer() {
           <div className="flex gap-5 text-xs text-muted-foreground">
             <Link to="/blog" className="hover:text-foreground transition-colors">Blog</Link>
             <Link to="/privacy-policy" className="hover:text-foreground transition-colors">Privacy</Link>
-            <Link to="/" className="hover:text-foreground transition-colors">Terms</Link>
+            <Link to="/terms-and-conditions" className="hover:text-foreground transition-colors">Terms</Link>
           </div>
         </div>
       </div>
